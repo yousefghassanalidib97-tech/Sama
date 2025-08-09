@@ -1,0 +1,77 @@
+/* =============== Premium Theme =============== */
+:root{
+  --bg:#0A0F1E; --ink:#EAF2FF; --muted:#A8B5D6; --panel:#0F1730; --border:#1B284A;
+  --gold:#F6C86E; --gold-2:#DFA44C; --chip:#0D1428; --card1:#121C3A; --card2:#0C142A;
+  --brand:#8EC5FF; --accent:#FF9E66;
+}
+/* Phases */
+body.morning{ --bg:#EEF5FF; --ink:#0F2140; --muted:#5A6E97; --panel:#FFFFFF; --border:#D9E6FF; --brand:#2C5698; --accent:#F7C76A; }
+body.day{ --bg:#E6F0FF; --ink:#102038; --muted:#54688E; --panel:#FFFFFF; --border:#D2E0FF; --brand:#2A4F8F; --accent:#F3C06C; }
+/* Golden afternoon */
+body.afternoon{ --bg:#FFF7ED; --ink:#1E1A15; --muted:#7B674F; --panel:#FFFFFF; --border:#F3E2CF; --brand:#2B4D8F; --accent:#FDBA74; }
+body.sunset{ --bg:#221935; --ink:#FBEAF6; --muted:#CDB8DA; --panel:#2A2142; --border:#3D2F5C; --brand:#F0A3B7; --accent:#FF9E66; }
+body.night{ /* default */ }
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family: 'Inter', ui-sans-serif, -apple-system, Segoe UI, Tahoma, Arial, 'Noto Naskh Arabic', 'Noto Sans', sans-serif; overflow-x:hidden}
+
+:lang(en) .display, :lang(en) .brand-title, :lang(en) .section-title{
+  font-family:'Orbitron','Inter',system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase
+}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;position:relative;z-index:3}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;background:
+  radial-gradient(circle at 35% 35%, #FFF 0%, #DDEBFF 28%, #9EC7FF 45%, #2B4D8F 60%, #0B1530 80%);
+  box-shadow:0 0 24px rgba(142,197,255,.45)}
+.brand-title{font-weight:800;font-size:18px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.nav{display:flex;gap:18px}
+.navlink{position:relative;color:var(--muted);font-weight:600}
+.navlink::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--brand));transition:width .25s}
+.navlink:hover::after{width:100%}
+.tools{display:flex;gap:8px;align-items:center}
+.select{border:1px solid var(--border);background:var(--chip);color:var(--ink);border-radius:10px;padding:8px 10px}
+
+.hero{position:relative;min-height:70vh;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center}
+@media (max-width:980px){.hero{grid-template-columns:1fr} .nav{display:none}}
+.glass{background:rgba(15,23,48,.55);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px;backdrop-filter:blur(8px)}
+body.morning .glass, body.day .glass, body.afternoon .glass{background:rgba(255,255,255,.6);border-color:rgba(0,0,0,.06)}
+.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.display{font-size:40px;line-height:1.25;margin:0 0 10px}
+.lead{color:var(--muted);margin:6px 0 14px;font-size:16px}
+
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--border);font-weight:700}
+.btn.primary{background:linear-gradient(180deg, var(--brand), #163466);color:#fff;box-shadow:0 10px 28px rgba(124,184,255,.25)}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+.feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fcard{padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.06)}
+.ficon{font-size:22px}
+.ftitle{font-weight:700}
+.fmeta{color:var(--muted);font-size:13px}
+.mini{height:56px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.02))}
+
+.section{position:relative;z-index:2;margin:30px 0}
+.section-title{font-size:18px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--card1),var(--card2));border:1px solid var(--border);
+      border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.meta{color:var(--muted);font-size:13px}
+.tag{display:inline-block;font-size:10px;border:1px solid var(--border);background:var(--chip);color:#6FA2FF;
+     padding:4px 8px;border-radius:999px;margin-inline-start:6px}
+
+.footer{color:var(--muted);text-align:center;padding:26px 0;border-top:1px solid var(--border);margin-top:28px;position:relative;z-index:2}
+
+/* Background layers */
+.scene{position:fixed;inset:0;overflow:hidden;z-index:0}
+#stars,#clouds,#moonSun{position:absolute;inset:0}
+.vignette{position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(circle at 50% 120%, rgba(0,0,0,.0) 30%, rgba(0,0,0,.35) 70%),
+  linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.25));z-index:1}
+.grain{position:fixed;inset:0;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"120\"><filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"2\"/><feColorMatrix type=\"saturate\" values=\"0\"/></filter><rect width=\"100%\" height=\"100%\" filter=\"url(%23n)\" opacity=\"0.03\"/></svg>');z-index:1;mix-blend-mode:soft-light;opacity:.3}
